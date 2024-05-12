@@ -1,2 +1,2 @@
-let baserUrl = 'http://localhost:8080'
+let baserUrl = 'https://parcialex-c54cceaa2700.herokuapp.com'
 export default baserUrl;

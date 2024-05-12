@@ -36,21 +36,21 @@ export class AuthService {
     );
   }
 
-    // Método para registrar un nuevo usuario
-    public register(user: any): Observable<any> {
-      return this.http.post(`${baserUrl}/usuario/registrar`, user);
-    }
+  // Método para registrar un nuevo usuario
+  public register(user: any): Observable<any> {
+    return this.http.post(`${baserUrl}/usuario/registrar`, user);
+  }
 
-    public setToken(token: string): void {
-      localStorage.setItem('token', token);
-      this.loggedIn.next(true);
-      this.checkToken(); // Verifica el token inmediatamente después de establecerlo
-    }
+  public setToken(token: string): void {
+    localStorage.setItem('token', token);
+    this.loggedIn.next(true);
+    this.checkToken(); // Verifica el token inmediatamente después de establecerlo
+  }
 
   public getToken(): string | null {
     return localStorage.getItem('token');
   }
-  
+
 
   public logout(): void {
     localStorage.removeItem('token');
@@ -84,10 +84,10 @@ export class AuthService {
     if (!token) {
       return null;
     }
-  
+
     const decoded: any = jwtDecode(token);
     return decoded.userId;  // Usa 'userId' como en la estructura de tu token
   }
-  
-  
+
+
 }
