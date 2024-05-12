@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Eventos no completados</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Tipo de Evento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let evento of eventos">
+                <td>{{ evento.id }}</td>
+                <td>{{ evento.titulo }}</td>
+                <td>{{ evento.descripcion }}</td>
+                <td>{{ evento.fecha | date: 'mediumDate' }}</td>
+                <td>{{ evento.hora }}</td>
+                <td>{{ evento.tipoEvento }}</td>
+                <td>
+                    <button class="btn btn-success" *ngIf="!evento.completado && evento.id !== undefined" (click)="completarEvento(evento.id)">
+                        Marcar como completado
+                      </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

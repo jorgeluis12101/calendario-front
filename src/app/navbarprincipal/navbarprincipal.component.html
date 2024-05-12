@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md bg-primary py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+        <span
+          class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
+        </span>
+        <span class="fw-bolder" style="padding-left: 20px;">Organizate</span>
+      </a>
+      <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+        <span class="visually-hidden">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-2">
+        <ul class="navbar-nav ms-auto">
+  
+          <li class="nav-item" *ngIf="isLoggedIn && isAdmin">
+            <a class="nav-link" routerLink="/admin">Dashboard Admin</a>
+          </li>
+  
+          <li class="nav-item" *ngIf="isLoggedIn && !isAdmin">
+            <a class="nav-link" routerLink="/user">Dashboard User</a>
+          </li>
+  
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <button class="btn btn-success" routerLink="/login-registro">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

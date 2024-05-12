@@ -1,0 +1,28 @@
+<div class="container mt-3">
+    <div class="row mb-2">
+        <!-- Parte del header del calendario -->
+        <div class="col text-center">
+            <button mat-raised-button color="primary" (click)="previousMonth()">&laquo; Anterior</button>
+            <span class="mx-3">{{ currentMonth | date: 'MMMM y' }}</span>
+            <button mat-raised-button color="primary" (click)="nextMonth()">Siguiente &raquo;</button>
+        </div>
+    </div>
+    <div class="row border text-center">
+        <!-- Mostrar los días de la semana -->
+        <div class="col border" *ngFor="let day of daysOfWeek"><strong>{{ day }}</strong></div>
+    </div>
+    <div class="row border" *ngFor="let week of calendar">
+        <div class="col border p-2" *ngFor="let day of week" [ngClass]="{'today': isToday(day.date)}"
+            (click)="addEvent(day.date)">
+            <div><strong>{{ day.date | date: 'd' }}</strong> {{ day.date | date: 'EEE' }}</div>
+            <ul class="list-unstyled">
+                <!-- Cambiar los eventos a botones interactivos -->
+                <li *ngFor="let event of day.events">
+                    <button class="btn btn-sm btn-outline-primary" (click)="addEvent(day.date)">
+                        {{ event.titulo }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

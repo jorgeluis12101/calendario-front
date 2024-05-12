@@ -1,0 +1,36 @@
+<!-- nav-vertical.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light flex-column align-items-start p-3 border-bottom">
+    <div class="navbar-brand mb-4 text-primary">Bienvenidooooo</div>
+    <a class="nav-link active text-dark" routerLink="/user/calendario">Calendario</a>
+    <a class="nav-link active text-dark" routerLink="/user/eventotarde">Eventos no completados</a>
+    <a class="nav-link active text-dark" routerLink="/user/historial">Historial</a>
+    <div class="mt-3 w-100">
+        <h6 class="text-secondary">Tus Eventos:</h6>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evento of (viewAll ? eventos : eventos.slice(0, 10)); let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ evento.titulo }}</td>
+                        <td>{{ evento.fecha | date: 'mediumDate' }}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" (click)="editEvent(evento)">Editar</button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteEvent(evento)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button *ngIf="eventos.length > 10" class="btn btn-outline-primary btn-sm" (click)="toggleViewAll()">
+            {{ viewAll ? 'Ver menos' : 'Ver más' }}
+        </button>
+    </div>
+</nav>
