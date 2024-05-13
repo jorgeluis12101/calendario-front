@@ -8,7 +8,7 @@ import { Evento } from '../../app/../../src/app/Compartido/evento';  // Ajusta l
   providedIn: 'root'
 })
 export class EventService {
-  private eventosUrl = 'https://parcialex-c54cceaa2700.herokuapp.com/eventos';
+  private eventosUrl = 'https://com-example-parcial.fly.dev';
 
   constructor(private http: HttpClient) { }
 
