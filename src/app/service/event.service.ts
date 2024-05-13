@@ -8,7 +8,7 @@ import { Evento } from '../../app/../../src/app/Compartido/evento';  // Ajusta l
   providedIn: 'root'
 })
 export class EventService {
-  private eventosUrl = 'https://com-example-parcial.fly.dev';
+  private eventosUrl = 'https://com-example-parcial.fly.dev/eventos';
 
   constructor(private http: HttpClient) { }
 
