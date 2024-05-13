@@ -1,2 +1,2 @@
-let baserUrl = 'https://com-example-parcial.fly.dev'
+let baserUrl = 'https://parcialex-c54cceaa2700.herokuapp.com'
 export default baserUrl;
